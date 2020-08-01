@@ -9,12 +9,16 @@ of an array of numbers.
 
 using namespace std;
 
-int getMax(int arr[]){
+int getMax(int arr[], int length){
 
     int max = arr[0];
 
     //go through the array & find the max
-
+    for (int i = 0; i < length; i++)
+    {
+        if(max < arr[i])
+            max = arr[i];
+    }
     return max;
 }
 
@@ -22,9 +26,23 @@ int getMax(int arr[]){
 int main(){
     
     //get array
+    int limit;
+    cout << "How many no to be entered: ";
+    cin >> limit;
 
+    int arr[limit], index = 0;
+    while (index < limit)
+    {
+        cout << "Enter element " << index+1 <<" : ";
+        cin >> arr[index];
+        cout << arr[index];
+        ++index;
+    }
+    cout << endl;
+    
     //function call
-
+    int max = getMax(arr, limit);
+    cout << "The max is: " << max << endl;
     
     return(0);
 }
