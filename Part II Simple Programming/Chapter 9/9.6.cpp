@@ -9,6 +9,11 @@ character "-" and replaces it with "_".
 
 using namespace std;
 
+
+void replaceMe(string *toreplace[], char charTo ){
+    
+}
+
 int main(){
     
 
