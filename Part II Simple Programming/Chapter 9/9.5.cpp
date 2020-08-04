@@ -14,7 +14,7 @@ int getMax(int arr[], int length){
     int max = arr[0];
 
     //go through the array & find the max
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < arr; i++)
     {
         if(max < arr[i])
             max = arr[i];

@@ -1,3 +1,4 @@
+
 /******************************************
  * 
 Write a macro is_digit that returns true if its
@@ -10,6 +11,11 @@ second macro should reference the first.
 #include <iostream>
 
 using namespace std;
+
+#define HEX 0x21
+#define DECI 32
+
+#ifdef HEX ==
 
 int main(){
     

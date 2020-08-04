@@ -1,3 +1,4 @@
+
 /******************************************
  * 
 Create a set of macros to define a type called
