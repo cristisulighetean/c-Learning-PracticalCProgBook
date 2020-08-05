@@ -12,8 +12,43 @@ int check::total(void); // Return the total of all items
 
 using namespace std;
 
+class checkbook
+{
+private:
+    int totalVal;
+public:
+    checkbook(void){totalVal = 0;};
+    ~checkbook(){};
+
+    void add(void){
+        int value;
+        cout << "Value: ";
+        cin >> value;
+        totalVal += value;
+    };
+    void total(void){
+        cout << "Total:" << totalVal << endl;
+    };
+};
+
 
 int main(){
+
+    checkbook check1;
+
+    check1.add();
+
+    check1.add();
+
+    check1.add();
+
+    check1.total();
+
+    check1.add();
+
+    check1.add();
+
+    check1.total();
 
 
 

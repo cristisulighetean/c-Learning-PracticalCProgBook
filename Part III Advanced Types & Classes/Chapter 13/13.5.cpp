@@ -10,26 +10,114 @@ struct single_card {
 char question[40]; // English version of the word
 char answer[40]; // Other language version of the word
 };
-// Constructor -- takes a list of cards to
-// initialize the flash card stack
-void flash_card::flash_card(single_card list[]);
-// Get the next card
-const single_card &flash_card::get_card(void);
-//The student got the current card right
-void flash_card::right(void);
-// The student got the current card wrong
-void flash_card::wrong(void);
-//Returns 1 -- done / 0 -- more to do
-int done(void);
+//constructor: gets no of flashcards 
+               initialises the flashcards one by one
+//game: while loop till there are no more fashcards(all of them have been corectly answered)
+ * 
  * 
 ***********************************************/
 
 #include <iostream>
+#include <string.h>
+#include <stdlib.h>
 
 using namespace std;
 
+const int MAX_SIZE = 100;
+
+
+struct singlecard
+    {
+        char question[40];
+        char answer[40];
+        bool correct = false;
+    };
+
+
+class flashcards
+{
+private:
+    int noCards = 0;
+    singlecard cards[MAX_SIZE];
+
+    
+public:
+    flashcards(void);
+    ~flashcards(){};
+    flashcards(const flashcards &old_flashcards); //copy operator
+    
+    void getNoFlashCards(void); //get the number of flashcards
+    void askForTheCards(void); //ask for each card to be initialized
+    void game(void); //the actual game
+
+};
+
+flashcards::flashcards(void)
+{
+    getNoFlashCards();
+    askForTheCards(); 
+    game();
+}
+
+
+void flashcards::getNoFlashCards(void){ //get the number of flashcards
+    cout << "Enter the number of cards: ";
+    cin >> noCards;
+} 
+void flashcards::askForTheCards(void){ //ask for each card to be initialized
+    for (int i = 0; i < noCards; i++)
+    {
+        cout << "Enter card " << i+1 << " : " << endl;
+        cout << "Question: ";
+        cin >> cards[i].question;
+        cout << "Answer: ";
+        cin >> cards[i].answer;
+    }
+    
+}
+
+void flashcards::game(void){
+    //go through the cards until all are corectly answered
+    int ans = 0; //counter of answered cards
+
+    cout << "Starting the game:" << endl;
+    cout << endl;
+
+    while (ans != noCards)
+    {
+        for (int i = 0; i < noCards; i++)
+        {
+            if(cards[i].correct != true){
+                //present question
+                cout << "Question: " << cards[i].question << endl;
+        
+                //ask for answer
+                cout << "Answer: ";
+                char answerNow[40];
+                cin >> answerNow;
+        
+
+                //check wether is true or not & mark it
+                if(strcmp(cards[i].answer, answerNow) == 0){
+                    cout << "Correct answer" << endl;
+                    ++ans;
+                    cards[i].correct = true;
+                }
+                else{
+                    cout << "Wrong answer" << endl;
+                }
+                cout << endl;
+            }
+        }
+        
+    }
+    cout << "Game completed" << endl;
+    
+}
 
 int main(){
+
+    flashcards test;
 
 
 

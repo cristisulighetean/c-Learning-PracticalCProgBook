@@ -19,8 +19,58 @@ cout << a_queue.get() << '\n'; // Prints 2, q
 
 using namespace std;
 
+const int MAX_SIZE = 100;
+
+class queue
+{
+private:
+    int start, end;
+    int data[MAX_SIZE];
+public:
+    void put(int item);
+    int get(void);
+    queue(/* args */);
+    ~queue();
+};
+
+queue::queue(/* args */)
+{
+    start = 0;
+    end = 0;
+}
+
+queue::~queue()
+{
+}
+
+void queue::put(int item){
+    data[end] = item;
+    ++end;
+}
+
+int queue::get(void){
+    if(start == end){
+        cout << "Queue is empty" << endl;
+        return(0);
+    }
+    else {
+        int item = data[start];
+        ++start;
+        return(item);
+    }
+}
+
 
 int main(){
+
+    queue qq1;
+
+    qq1.put(10);
+
+    cout << qq1.get() << endl;
+
+    cout << qq1.get() << endl;
+
 
 
 

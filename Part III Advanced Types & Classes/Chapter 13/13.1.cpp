@@ -15,10 +15,32 @@ for an odd number.
 
 using namespace std;
 
+class parity
+{
+private:
+    int count;
+public:
+    void put (void){ ++ count;}
+    bool test (void){
+        if (count % 2 == 0) return(true);
+    else return(false);
+    }
+    parity(){count = 0;};
+    ~parity(){};
+};
+
 
 int main(){
 
+    parity parTest;
 
+    for (int i = 0; i < 5; i++)
+    {
+        parTest.put();
+        cout << parTest.test() << endl;
+
+    }
+    
 
     return (0);
 }

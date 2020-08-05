@@ -23,9 +23,60 @@ a_set.clear(5); // Set contains [3]
 
 using namespace std;
 
+const int SET_SIZE = 31;
+
+class smallSet
+{
+private:
+    bool data[SET_SIZE] ;
+
+public:
+    void set(int item);
+    void clear(int item);
+    void test(int item);
+    smallSet();
+    ~smallSet(){};
+};
+
+smallSet::smallSet(/* args */)
+{
+    //initialize set to zero
+    for (int i = 0; i < SET_SIZE; i++)
+    {
+        data[i] = false;
+    }  
+}
+
+
+void smallSet::set(int item){
+    data[item] = true; 
+}
+
+void smallSet::clear(int item){
+    data[item] = false; 
+}
+
+void smallSet::test(int item){
+
+    if (data[item] == true){
+        cout << "The set contains " << item << endl;
+    }
+    else
+        cout << "The set does not contains " << item << endl;
+        
+}
 
 int main(){
 
+    smallSet set1;
+
+    set1.set(1);
+
+    set1.test(1);
+
+    set1.test(5);
+
+    set1.test(6);
 
 
     return (0);
