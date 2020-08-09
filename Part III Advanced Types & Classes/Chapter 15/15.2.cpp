@@ -21,8 +21,8 @@ int main(){
 
     char str[100] = "   this is a life";
   
-     char *ptr_func = data(*str);
+     char *ptr_func;
+     *ptr_fun = data(*str);
 
     return (0);
 }
-  
